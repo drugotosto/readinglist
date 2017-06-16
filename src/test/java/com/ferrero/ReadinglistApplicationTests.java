@@ -1,12 +1,11 @@
 package com.ferrero;
 
-import com.ferrero.controller.HomeController;
+import com.ferrero.controller.ReadingListController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
@@ -24,7 +23,7 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 public class ReadinglistApplicationTests {
 
     @Autowired
-    private HomeController controller;
+    private ReadingListController controller;
 
     /*
         Test that the application context loads successfully and the context is creating your controller.

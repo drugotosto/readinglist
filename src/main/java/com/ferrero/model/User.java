@@ -9,7 +9,7 @@ import javax.persistence.Id;
  * Created by drugo on 16/06/2017.
  */
 
-@Entity // This tells Hibernate to make a table out of this class
+@Entity
 public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)

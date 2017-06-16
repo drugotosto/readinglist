@@ -1,4 +1,4 @@
-package com.ferrero.dao;
+package com.ferrero.repository;
 
 import com.ferrero.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
