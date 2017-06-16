@@ -7,9 +7,9 @@ rimuovere libri dalla lista...
 Viene usato:
 <ul>
     <li>AOP</li>
-    <li>Spring MVC per gestire le richieste web<\li>
-    <li>Thymeleaf come template engine<\li> 
-    <li>Spring Data jpa<\li>
-    <li>MySQL<\li>
-    <li>Embedded servlet container Tomcat<\li>  
+    <li>Spring MVC per gestire le richieste web</li>
+    <li>Thymeleaf come template engine</li> 
+    <li>Spring Data jpa</li>
+    <li>MySQL (not embedded)</li>
+    <li>Embedded servlet container Tomcat</li>  
 </ul>
