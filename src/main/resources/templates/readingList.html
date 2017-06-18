@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.springframework.org/schema/data/jaxb">
-    <head>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
         <title>Reading List</title>
-        <link rel="stylesheet" th:href="@{/style.css}"></link>
+        <link rel="stylesheet" th:href="@{/css/stileBase.css}" href="../static/css/stileBase.css" type="text/css"/>
     </head>
     <body>
         <h2>Your Reading List</h2>
         <div th:unless="${#lists.isEmpty(books)}">
-            <dl th:each="book : ${books}">
+            <dl th:each="book:${books}">
                 <dt class="bookHeadline">
                     <span th:text="${book.title}">Title</span> by
                     <span th:text="${book.author}">Author</span>
@@ -23,18 +23,23 @@
         <hr/>
         <h3>Add a book</h3>
         <form method="POST">
-            <label for="title">Title:</label>
-            <input type="text" name="title" size="50"></input><br/>
+            <label id="title">Title:
+                <input type="text" name="title" size="50" />
+            </label><br/>
 
-            <label for="author">Author:</label>
-            <input type="text" name="author" size="50"></input><br/>
+            <label id="author">Author:
+                <input type="text" name="author" size="50" />
+            </label><br/>
 
-            <label for="isbn">ISBN:</label>
-            <input type="text" name="isbn" size="15"></input><br/>
+            <label id="isbn">ISBN:
+                <input type="text" name="isbn" size="15" />
+            </label><br/>
 
-            <label for="description">Description:</label><br/>
-            <textarea name="description" cols="80" rows="5"> </textarea><br/>
-            <input type="submit"></input>
+            <label id="description">Description:<br/>
+                <textarea name="description" cols="80" rows="5"> </textarea>
+            </label><br/>
+
+            <input type="submit"/>
         </form>
     </body>
 </html>
