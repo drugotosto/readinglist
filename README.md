@@ -6,11 +6,11 @@ rimuovere libri dalla lista...
 
 Viene usato:
 <ul>
-    <li>AOP</li>
     <li>Spring MVC per gestire le richieste web</li>
-    <li> Libreria Apache Tiles come Template Engine Framework </li> 
-    <li> Thymeleaf come template engine (alternativo)
+    <li>Thymeleaf come template engine (alternativo)
     <li>Spring Data jpa</li>
     <li>MySQL (not embedded)</li>
-    <li>Embedded servlet container Tomcat</li>  
+    <li>Embedded servlet container Tomcat</li>
+    <li>Log4j</li>
+    <li>Utilizzo di Spring Security (Autenticazione/Autorizzazione, CSFR, HTTPS, encryption della pawwsord utente)</li>
 </ul>

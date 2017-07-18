@@ -11,6 +11,11 @@
 	<name>readinglist</name>
 	<description>Project Spike for allowing users to manage their favourite books next to read</description>
 
+    <!--
+        By rooting the project in the parent starter, the build can take advantage of Maven dependency
+        management to inherit dependency versions for several commonly used libraries so that you don’t
+        have to explicitly specify the versions when declaring dependencies.
+    -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -46,18 +51,16 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-        <dependency>
-            <groupId>org.apache.tiles</groupId>
-            <artifactId>tiles-parent</artifactId>
-            <version>3.0.7</version>
-            <type>pom</type>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

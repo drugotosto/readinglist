@@ -2,6 +2,8 @@ package com.ferrero;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /*
     The application’s bootstrap class and primary Spring configuration class.
@@ -22,10 +24,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
     activates key behaviors such as setting up a DispatcherServlet
 */
 @SpringBootApplication
-public class ReadinglistApplication {
+public class ReadinglistApplication extends WebMvcConfigurerAdapter {
 
 	public static void main(String[] args) {
 	    //Bootstrap the application
 		SpringApplication.run(ReadinglistApplication.class, args);
 	}
+
 }

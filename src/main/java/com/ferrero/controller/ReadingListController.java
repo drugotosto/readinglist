@@ -1,12 +1,13 @@
 package com.ferrero.controller;
 
 import com.ferrero.model.Book;
+import com.ferrero.model.User;
 import com.ferrero.repository.ReadingListRepository;
+import com.ferrero.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -21,20 +22,41 @@ public class ReadingListController {
     @Autowired
     private ReadingListRepository readingListRepository;
 
-    @RequestMapping(value="/{reader}", method=RequestMethod.GET)
+    @Autowired
+    private UserRepository userRepository;
+
+    @RequestMapping(value="/user/{reader}", method=RequestMethod.GET)
     public ModelAndView readersBooks(@PathVariable("reader") String reader) {
         ModelAndView mav = new ModelAndView("readingList");
         List<Book> readingList = readingListRepository.findByReader(reader);
+        User user = userRepository.findByUsername(reader);
         if (readingList != null) {
             mav.addObject("books", readingList);
+            mav.addObject("reader",user);
         }
         return mav;
     }
 
-    @RequestMapping(value="/{reader}", method=RequestMethod.POST)
-    public String addToReadingList(@PathVariable("reader") String reader, Book book) {
-        book.setReader(reader);
+    @RequestMapping(value="/registerbook", method=RequestMethod.POST)
+    public String addToReadingList(Book book) {
         readingListRepository.save(book);
-        return "redirect:/{reader}";
+        return "redirect:/profile/"+book.getReader();
     }
+
+    @RequestMapping(value="/login", method = RequestMethod.GET)
+    public String login(){return "login";}
+
+    @RequestMapping()
+    public String home(){
+        return "index";
+    }
+
+    @RequestMapping(value="/profile/{reader}", method=RequestMethod.GET)
+    public ModelAndView showReaderProfile(@PathVariable("reader") String username){
+        ModelAndView mav = new ModelAndView("profile");
+        User user = userRepository.findByUsername(username);
+        mav.addObject("reader" ,user);
+        return mav;
+    }
+
 }

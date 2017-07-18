@@ -5,7 +5,7 @@
         <link rel="stylesheet" th:href="@{/css/stileBase.css}" href="../static/css/stileBase.css" type="text/css"/>
     </head>
     <body>
-        <h2>Your Reading List</h2>
+    <h2><span th:text="${reader.name}">Name</span>'s Reading List</h2>
         <div th:unless="${#lists.isEmpty(books)}">
             <dl th:each="book:${books}">
                 <dt class="bookHeadline">
@@ -19,10 +19,16 @@
                 </dd>
             </dl>
         </div>
-        <div th:if="${#lists.isEmpty(books)}"><p>You have no books in your book list</p></div>
+        <div th:if="${#lists.isEmpty(books)}">
+            <p>You have no books in your book list</p>
+        </div>
+
+
         <hr/>
+
+
         <h3>Add a book</h3>
-        <form method="POST">
+        <form th:action="@{/registerbook}" th:object="${book}" method="POST">
             <label id="title">Title:
                 <input type="text" name="title" size="50" />
             </label><br/>
@@ -39,6 +45,7 @@
                 <textarea name="description" cols="80" rows="5"> </textarea>
             </label><br/>
 
+            <input type="hidden" id="reader" name="reader" th:value="${reader.username}" />
             <input type="submit"/>
         </form>
     </body>

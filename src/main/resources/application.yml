@@ -1,0 +1,13 @@
+# Other File where you can configure application and Spring Boot
+
+# Comes in handy for fine-grained configuration of the stuff that Spring Boot automatically configures.
+# But you can also use it to specify properties used by application code.
+
+# ENABLE HTTPS SECURITY EMBEDDED TOMCAT SERVER (for all requests). For more fine request configuration use .requiresChannel()......requiresSecure() in configure(HttpSecurity http)
+server:
+  port: 8443
+  ssl:
+    enabled: true
+    key-store: "file:///C:\\Users\\drugo\\IdeaProjects\\readinglist\\src\\main\\resources\\mykeys.jks"
+    key-store-password: "UfhA2ybn"
+    key-password: "UfhA2ybn"
